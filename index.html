@@ -1,0 +1,44 @@
+<html> 
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>My Video</title> 
+	<script>
+		function func(a,b) {
+			var textBtn = document.getElementById("inputText");
+			
+			alert(textBtn.value);
+
+			var iframePlayer = document.getElementById("iframePlayer");
+			//alert(iframePlayer);
+
+			//alert(iframePlayer.src);			
+
+			//iframePlayer.src=textBtn.value;
+			
+			var strings = textBtn.value.split('/');
+			console.log(strings);
+			if (strings.length > 0){
+				var addr = strings[strings.length-1];
+				var convAddr = "https://www.youtube.com/embed/" + addr;
+				console.log(convAddr);
+				iframePlayer.src = convAddr;
+			}
+			console.log(screen);
+			console.log(iframePlayer);
+
+		}
+	</script>
+  </head> 
+  <body> 
+<p>
+	<input type="text" style="width:800px;height:100px;font-size:50px;" id="inputText" onkeyup="if(window.event.keyCode==13){func(10,10)}" />
+	<!--<input type="button" style="width:100px;height:100px;" value="+" onclick="func(20,30)" />-->
+</p>
+
+<iframe id="iframePlayer" width="932" height="524" src="https://www.youtube.com/embed/0ZLQnTQ2glc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+
+  </body>
+</html>
+
+
